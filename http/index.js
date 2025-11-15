@@ -7,4 +7,10 @@ router.get("/", (req, res) => {
   });
 });
 
+router.post("/friends", (req, res) => {
+  const messageFromClient = req.body;
+  console.log("Received string from client:", messageFromClient);
+  res.status(200).send(messageFromClient);
+});
+
 module.exports = router;

@@ -3,6 +3,7 @@ const apiRouter = require("./http");
 
 const app = express();
 app.use(express.json());
+app.use(express.text());
 
 app.use("/api/v1", apiRouter);
 
