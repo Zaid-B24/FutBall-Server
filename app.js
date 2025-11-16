@@ -1,14 +1,18 @@
 const express = require("express");
+const cors = require("cors");
 const apiRouter = require("./http");
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use(express.text());
 
 app.use("/api/v1", apiRouter);
 
 app.get("/", (req, res) => {
-  res.status(200).json("What are you doing here?");
+  res.status(200).json({
+    message: "What are u doing here?",
+  });
 });
 
 app.use((req, res, next) => {
