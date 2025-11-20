@@ -1,8 +1,13 @@
 "use strict";
+require("dotenv").config();
 const http = require("http");
 const app = require("./app");
 const webSocketRoutes = require("./websocket");
+const connectDB = require("./config/db");
+
 const PORT = process.env.PORT || 8080;
+
+connectDB();
 
 const server = http.createServer(app);
 webSocketRoutes(server);
