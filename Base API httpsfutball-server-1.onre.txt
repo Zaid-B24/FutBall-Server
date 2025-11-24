@@ -1,0 +1,31 @@
+Base API: https://futball-server-1.onrender.com/ {Response: "message": "What are u doing here?"}
+
+Test Api(Health check): https://futball-server-1.onrender.com/api/v1/ { "message": "API v1 is up and running!"}
+
+POST ENDPOINT: https://futball-server-1.onrender.com/api/v1/users/register 
+{Body: username, email, password, deviceId}
+
+response: {
+    "status": "success",
+    "data": {
+        "_id": "6921d929a8d32b38ca177531",
+        "username": "umair",
+        "email": "umair@gmail.com",
+        "deviceId": "2202"
+    }
+}
+
+
+GET ENDPOINT: https://futball-server-1.onrender.com/api/v1/users/profile?{registered email address without braces bracket}
+
+response: {
+    "status": "success",
+    "data": {
+        "_id": "6921d929a8d32b38ca177531",
+        "username": "umair",
+        "email": "umair@gmail.com",
+        "deviceId": "2202",
+        "playerLevel": 1,
+        "friends": []
+    }
+}

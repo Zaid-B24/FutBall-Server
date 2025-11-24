@@ -1,39 +1,5 @@
 const UserService = require("../services/UserService");
 
-const registerUser = async (req, res) => {
-  try {
-    const { username, email, password, deviceId } = req.body;
-
-    if (!username || !email || !password) {
-      return res.status(400).json({ message: "Please provide all fields" });
-    }
-
-    const userResult = await UserService.registerUser({
-      username,
-      email,
-      password,
-      deviceId,
-    });
-
-    res.status(201).json({
-      status: "success",
-      data: userResult,
-    });
-  } catch (error) {
-    if (error.message === "User already exists") {
-      return res.status(400).json({ message: "User already exists" });
-    }
-
-    if (error.code === 11000) {
-      return res
-        .status(400)
-        .json({ message: "Username or Email already taken" });
-    }
-    console.error(error);
-    res.status(500).json({ message: "Server Error" });
-  }
-};
-
 const getUserProfile = async (req, res) => {
   try {
     const { email } = req.query;
@@ -57,6 +23,5 @@ const getUserProfile = async (req, res) => {
 };
 
 module.exports = {
-  registerUser,
   getUserProfile,
 };
