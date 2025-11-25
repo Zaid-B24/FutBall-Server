@@ -7,6 +7,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.text());
 
+app.use((req, res, next) => {
+  console.log(`➡️  ${req.method} ${req.originalUrl}`);
+  next();
+});
+
 app.use("/api/v1", apiRouter);
 
 app.get("/", (req, res) => {
