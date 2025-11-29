@@ -1,31 +1,55 @@
 Base API: https://futball-server-1.onrender.com/ {Response: "message": "What are u doing here?"}
 
-Test Api(Health check): https://futball-server-1.onrender.com/api/v1/ { "message": "API v1 is up and running!"}
+Test API(Health check): https://futball-server-1.onrender.com/api/v1/ { "message": "API v1 is up and running!"}
 
 POST ENDPOINT: https://futball-server-1.onrender.com/api/v1/users/register 
-{Body: username, email, password, deviceId}
+BODY:{username, email, password, deviceId}
 
-response: {
+example: 
+
+{
+    "username": "zaid",
+    "email":"zaid@gmail.com",
+    "password":"123456",
+    "deviceId": "skjsdcfd94fsvdsbvhksjbvisgvbhis"
+}
+
+Username , email and device id should be unique during registration
+
+Response:
+{
     "status": "success",
     "data": {
-        "_id": "6921d929a8d32b38ca177531",
-        "username": "umair",
-        "email": "umair@gmail.com",
-        "deviceId": "2202"
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MmE5MGY2YzUwZWIwNTM5MTllMmMzZCIsImlhdCI6MTc2NDM5NzMwMiwiZXhwIjoxNzY1MDAyMTAyfQ.mcB2pwxHXWKX8WYD6NeDlKfIZRwFoh4bVM0IDvyCGb8",
+        "user": {
+            "_id": "692a90f6c50eb053919e2c3d",
+            "username": "sjjsvdfdslfvnl sdvcsvu",
+            "email": "trysvsvvsbdsvssdvscvssal@gmail.com",
+            "deviceId": "skjsdc fd 94fsvdsbvhksjbvisgvbhis"
+        }
     }
 }
 
+/////////////////////////////////////////////////////
 
-GET ENDPOINT: https://futball-server-1.onrender.com/api/v1/users/profile?{registered email address without braces bracket}
 
-response: {
+GET ENDPOINT: https://futball-server-1.onrender.com/api/v1/auth/login?{registered email address without braces bracket}
+BODY:{email, password}
+example:
+{
+    "email":"zaid@gmail.com",
+    "password":"123456"
+}
+
+Response:
+{
     "status": "success",
     "data": {
-        "_id": "6921d929a8d32b38ca177531",
-        "username": "umair",
-        "email": "umair@gmail.com",
-        "deviceId": "2202",
-        "playerLevel": 1,
-        "friends": []
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjVlMDI3NzdhMzA3YzQzMDFmYzI5OCIsImlhdCI6MTc2NDM5NzQzMCwiZXhwIjoxNzY1MDAyMjMwfQ.RBjFbNTAXeRS359ZTdIB-eftufhDvM7dsr5iE66h_HU",
+        "user": {
+            "_id": "6925e02777a307c4301fc298",
+            "username": "sjjsvsdvcsvu",
+            "email": "trysvsvsvssdvsal@gmail.com"
+        }
     }
 }
