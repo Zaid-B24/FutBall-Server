@@ -51,11 +51,11 @@ const loginUser = async (email, password) => {
   });
   return {
     token,
-    user: {
-      _id: user.id,
-      username: user.username,
-      email: user.email,
-    },
+    // user: {
+    //   _id: user.id,
+    //   username: user.username,
+    //   email: user.email,
+    // },
   };
 };
 
