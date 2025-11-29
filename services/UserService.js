@@ -1,7 +1,7 @@
 const User = require("../models/User");
 
-const getUserByEmail = async (email) => {
-  const user = await User.findOne({ email });
+const getUserProfile = async (userId) => {
+  const user = await User.findById(userId);
   if (!user) {
     throw new Error("User not found");
   }
@@ -17,5 +17,5 @@ const getUserByEmail = async (email) => {
 };
 
 module.exports = {
-  getUserByEmail,
+  getUserProfile,
 };

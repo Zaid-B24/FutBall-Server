@@ -2,13 +2,8 @@ const UserService = require("../services/UserService");
 
 const getUserProfile = async (req, res) => {
   try {
-    const { email } = req.query;
-    if (!email) {
-      return res
-        .status(400)
-        .json({ message: "Please provide an email in the query parameters" });
-    }
-    const userData = await UserService.getUserByEmail(email);
+    const userId = req.user._id;
+    const userData = await UserService.getUserProfile(userId);
     res.status(200).json({
       status: "success",
       data: userData,
